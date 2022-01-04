@@ -34,6 +34,12 @@ class Post(models.Model):
     created_date_and_nbsp = models.DateTimeField(auto_now=True)
     slug = models.SlugField(max_length=100, verbose_name='url')
 
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'посты'
+
 
 class Comment(models.Model):
     """Модель Коментариев"""
@@ -41,3 +47,5 @@ class Comment(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     moderation = models.BooleanField()
 
+    class Meta:
+        verbose_name = 'Коментарии'
